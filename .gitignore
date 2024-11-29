@@ -21,4 +21,4 @@ venv.bak/
 # 忽略某些文件夹中的临时文件
 temp/
 build/
-.Ds_store
+.Ds_Store
