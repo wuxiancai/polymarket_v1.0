@@ -925,8 +925,8 @@ class CryptoTrader:
             time.sleep(2)  # 给扩展弹窗足够的时间显示
             
             # 模拟键盘操作序列
-            # 1. 按4次TAB
-            for _ in range(4):
+            # 1. 按6次TAB
+            for _ in range(6):
                 pyautogui.press('tab')
                 time.sleep(0.5)  # 每次按键之间添加短暂延迟
             
