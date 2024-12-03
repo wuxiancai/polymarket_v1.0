@@ -33,26 +33,6 @@ echo "185.199.109.153 raw.githubusercontent.com" | sudo tee -a /etc/hosts
 echo "185.199.110.153 raw.githubusercontent.com" | sudo tee -a /etc/hosts
 echo "185.199.111.153 raw.githubusercontent.com" | sudo tee -a /etc/hosts
 
-# 设置代理
-cat > set_proxy.sh << 'EOL'
-#!/bin/bash
-for port in 1080 7890; do
-    export http_proxy=http://127.0.0.1:$port
-    export https_proxy=http://127.0.0.1:$port
-    if curl -s --connect-timeout 5 -I https://www.google.com >/dev/null; then
-        echo "Proxy is working on port $port"
-        echo "export http_proxy=http://127.0.0.1:$port" >> ~/.zshrc
-        echo "export https_proxy=http://127.0.0.1:$port" >> ~/.zshrc
-        source ~/.zshrc
-        exit 0
-    fi
-done
-echo "No working proxy found."
-EOL
-chmod +x set_proxy.sh
-bash set_proxy.sh
-source ~/.zshrc
-
 # 检查并安装 Homebrew (自动模式)
 if ! command -v brew &> /dev/null; then
     echo "正在安装 Homebrew..."
